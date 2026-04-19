@@ -127,6 +127,4 @@ O bridge:
 
 ## Uso pretendido
 
-Este projeto não tenta substituir o `mCockpit` nem criar um novo viewer.
-
-Ele existe para resolver um problema específico de integração: permitir que o `mCockpit` trabalhe melhor com viewers externos no fluxo real.
+Este projeto existe para resolver um problema específico de integração: permitir que o `mCockpit` abra exames em viewers externos não contemplados pela própria aplicação, de forma previsível e com menos atrito no fluxo real.
