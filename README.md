@@ -84,13 +84,43 @@ radiant_dicom=C:\DICOM
 
 ## Deploy
 
-1. Localize a pasta em que o `mCockpit` espera encontrar o executável chamado pelo plugin.
-2. Faça backup do `ispilot.exe` anterior, se existir.
+1. Defina a pasta em que o plugin do `mCockpit` passará a procurar o executável de abertura do viewer externo.
+2. Crie essa pasta manualmente, se ela ainda não existir.
 3. Copie para essa pasta:
    - `ispilot.exe`
    - `config.ini`
 
 Dependendo da instalação, isso pode exigir privilégios de administrador.
+
+### Onde o `ispilot.exe` deve ser colocado
+
+Na prática, o `ispilot.exe` compilado deve ficar no local em que o plugin do `mCockpit` foi configurado para procurar o executável de abertura do viewer externo.
+
+Neste projeto, o cenário correto não é substituir um `ispilot.exe` já existente.
+
+O esperado é:
+
+- definir um caminho próprio para o bridge;
+- criar a árvore de diretório correspondente;
+- colocar nesse local o `ispilot.exe` compilado e o `config.ini`;
+- apontar o plugin do `mCockpit` para esse caminho.
+
+Em instalações parecidas com as já observadas, isso costuma apontar para algo como:
+
+```text
+C:\Program Files\Intrasense\Myrian\
+```
+
+mas esse valor deve ser tratado apenas como exemplo.
+
+O ponto principal é: o caminho real precisa ser o mesmo configurado no plugin do `mCockpit`, mesmo que a pasta precise ser criada do zero.
+
+Regra prática:
+
+- não presumir que já exista um `ispilot.exe` no ambiente;
+- criar a pasta de destino quando necessário;
+- colocar `ispilot.exe` e `config.ini` exatamente no caminho configurado no plugin;
+- validar a abertura do viewer usando esse caminho como origem da integração.
 
 ## Comportamento por viewer
 
