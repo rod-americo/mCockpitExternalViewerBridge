@@ -27,11 +27,8 @@ Na prática, este projeto existe para fazer a integração entre o `mCockpit` e 
 
 ## Estrutura do projeto
 
-- `DicomProxyLauncher.cs`: código-fonte C# do bridge
+- `proxy.cs`: código-fonte C# do bridge
 - `config.ini`: configuração local do viewer e dos caminhos necessários
-
-Observação:
-o repositório já foi renomeado para `mCockpitExternalViewerBridge`, mas o arquivo-fonte principal ainda mantém o nome antigo. Isso não impede o uso do projeto, apenas indica um ajuste de nomenclatura ainda pendente.
 
 ## Requisitos
 
@@ -45,7 +42,7 @@ o repositório já foi renomeado para `mCockpitExternalViewerBridge`, mas o arqu
 No Windows em que o `mCockpit` está rodando, compile o código com:
 
 ```powershell
-& "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe" /target:winexe /out:ispilot.exe DicomProxyLauncher.cs
+& "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe" /target:winexe /out:ispilot.exe proxy.cs
 ```
 
 Isso gera um executável `ispilot.exe` em modo silencioso, sem janela de console.
@@ -119,7 +116,6 @@ O bridge:
 
 - o parser de `config.ini` é propositalmente simples;
 - o projeto assume convenções locais de diretório para o RadiAnt;
-- o arquivo-fonte principal ainda usa o nome histórico `DicomProxyLauncher.cs`;
 - a estratégia de logging está desativada no código atual.
 
 ## Histórico resumido
